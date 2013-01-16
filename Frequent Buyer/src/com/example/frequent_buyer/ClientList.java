@@ -46,16 +46,8 @@ public class ClientList extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_client_list);
-
-		activity = this;
-		list = (ListView) findViewById(R.id.list);
-		
-
-		String email = staticParams.userEmail;
-		new ConnectionAsyncTask().execute(email);
-		
-		Button btn_logout = (Button)findViewById(R.id.btn_logout);
-		
+		initialize();
+	
 		// Listening to Logout button click
 		btn_logout.setOnClickListener(new View.OnClickListener() 
 		{
@@ -204,5 +196,16 @@ public class ClientList extends Activity
 		}
 	}
 
+	private void initialize()
+	{
+		activity = this;
+		list = (ListView) findViewById(R.id.list);
+		
 
+		String email = staticParams.userEmail;
+		new ConnectionAsyncTask().execute(email);
+		
+		Button btn_logout = (Button)findViewById(R.id.btn_logout);
+			
+	}
 }
